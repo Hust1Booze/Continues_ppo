@@ -1,0 +1,13 @@
+function [NextObs,Reward,IsDone,LoggedSignals] = myStepFunction(Action,LoggedSignals)
+
+Action = sigmoid(Action);
+IsDone = true;
+
+act1 = Action(1:7,:);
+act2 = Action(9:15,:);
+Reward = sum(act1)-sum(act2);
+LoggedSignals.State = [1;1;1;1;1;1;1;1;1;1;1;1;1;1;1];
+%LoggedSignal.State = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
+NextObs = LoggedSignals.State;
+
+end
